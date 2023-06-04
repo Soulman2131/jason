@@ -1,4 +1,7 @@
-// On va faire supporter le backdrop-filter sur CHROME avec @upports
+//A quel moment, le popup est target?
+// popup_target popup_content {opacity:1 transform}
+// On met dans _content opacity:0 & transform
+//Puisqu'on avait déjà une transform contenu dans AbsPosCenter, on lui rajoute le -50%
 
 .popup {
 	height: 100vh;
@@ -9,6 +12,7 @@
 	background: rgba($color-black, 0.8);
 	z-index: 9999;
 
+	// display: none;
 	opacity: 0;
 	visibility: hidden;
 	transition: all 0.3s;
@@ -16,18 +20,6 @@
 	-moz-transition: all 0.3s;
 	-ms-transition: all 0.3s;
 	-o-transition: all 0.3s;
-
-	//BACKDROP
-
-	// backdrop-filter: blur(10px);
-	// -webkit-backdrop-filter: blur(10px);
-	// background: rgba($color-black, 0.3);
-
-	@supports (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
-		backdrop-filter: blur(10px);
-		-webkit-backdrop-filter: blur(10px);
-		background: rgba($color-black, 0.3);
-	}
 
 	&_content {
 		@include posAbsCenter;

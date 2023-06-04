@@ -1,8 +1,7 @@
-// Aprés avoir tester sur les précédents le secondary-light, on revient au primary-light
-
-//On corrige ausis clip-path en changeant les 2 vh && on copie à _story02
+// On transform les px des media en em
+//On corrige également le min-résolution pour que ça marche sur mozilla pcq souvent en phone les gens utilisent bcp MOZILLA
 .header {
-	height: 85vh;
+	height: 95vh;
 	background: linear-gradient(
 			to right bottom,
 			rgba($color-primary-light, 0.8),
@@ -13,21 +12,14 @@
 	-webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 	position: relative;
 
-	//SUPPORTS CLIP-PATH
-	@supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
-		clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-		-webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-		height: 95vh;
-	}
-
 	//MEDIA IMG
 	@media (min-resolution: 192dpi) and (min-width: 37.5em),
 		(-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
 		(min-width: 125em) {
 		background: linear-gradient(
 				to right bottom,
-				rgba($color-primary-light, 0.8),
-				rgba($color-primary-dark, 0.8)
+				rgba($color-secondary-light, 0.8),
+				rgba($color-secondary-dark, 0.8)
 			),
 			url(../img/hero.jpg);
 	}
