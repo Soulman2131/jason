@@ -1,0 +1,41 @@
+// On change le clip-path mais aussi le button MENU qui est à droite en haut && ça se trouve dans NAVIGATION
+.header {
+	height: 95vh;
+	background: linear-gradient(
+			to right bottom,
+			rgba($color-primary-light, 0.8),
+			rgba($color-primary-dark, 0.8)
+		),
+		url(../img/hero.jpg) top/cover;
+	clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+	-webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+	position: relative;
+
+	@include respond(phone) {
+		clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+		-webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+	}
+
+	//LOGO BOX
+	&__logo-box {
+		position: absolute;
+		top: 4rem;
+		left: 4rem;
+		& img {
+			height: 3.5rem;
+		}
+	}
+
+	//TEXT BOX
+	&__text-box {
+		position: absolute;
+		top: 40%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		-webkit-transform: translate(-50%, -50%);
+		-moz-transform: translate(-50%, -50%);
+		-ms-transform: translate(-50%, -50%);
+		-o-transform: translate(-50%, -50%);
+		text-align: center;
+	}
+}

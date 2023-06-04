@@ -1,0 +1,29 @@
+//  On raméne les fonctions du @mixin
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
+}
+
+html {
+	font-size: 62.5%;
+
+	@include respond(phone) {
+		font-size: 30%; //1rem=4.8px => 4.8/16
+	}
+	@include respond(tabPort) {
+		font-size: 50%; //1rem=8px => 8/16
+	}
+	@include respond(tabLand) {
+		font-size: 56.25%; //1rem=9px => 9/16
+	}
+	@include respond(bigDesk) {
+		font-size: 75%; //1rem=12px => 12/16
+	}
+}
+
+body {
+	box-sizing: border-box;
+}

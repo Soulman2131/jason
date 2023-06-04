@@ -1,0 +1,36 @@
+//On commence par PHONE et ensuite on fait le reste
+@mixin clearfix {
+	&::after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
+@mixin posAbsCenter {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+}
+
+// MEDIA QUERIES
+
+/*
+0-600px => Phone
+600-900px => Tablette portrait
+900-1200px => Tablette landscape
+1200-1800px => Desktop
++1800px => Big Desktop
+*/
+
+//PHONE
+@mixin respond-phone {
+	@media (max-width: 600px) {
+		@content;
+	}
+}

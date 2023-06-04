@@ -1,0 +1,144 @@
+//On termine avec form_radio--input
+//On rajoute le bouton tout en bas NEXT STEP
+
+.form {
+	&_group {
+		&:not(:last-child) {
+			margin-bottom: 2rem;
+		}
+	}
+	&_input {
+		font-size: 1.5rem;
+		padding: 1.5rem 2rem;
+		font-family: inherit;
+		color: inherit;
+		background-color: rgba($color-white, 0.5);
+		width: 90%;
+		display: block;
+		border: none;
+		border-bottom: 3px solid transparent;
+		border-radius: 2px;
+		-webkit-border-radius: 2px;
+		-moz-border-radius: 2px;
+		-ms-border-radius: 2px;
+		-o-border-radius: 2px;
+		transition: all 0.3s;
+		-webkit-transition: all 0.3s;
+		-moz-transition: all 0.3s;
+		-ms-transition: all 0.3s;
+		-o-transition: all 0.3s;
+
+		//MEDIA
+		@include respond(tabPort) {
+			width: 100%;
+		}
+
+		&:focus {
+			outline: none;
+			box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+			border-bottom: 3px solid $color-primary;
+		}
+		//FOCUS POUR METTRE LA LIGNE EN ROUGE
+		&:focus:invalid {
+			border-bottom: 3px solid $color-secondary-dark;
+		}
+		&::-webkit-input-placeholder {
+			color: $color-gray-dark;
+		}
+	}
+
+	&_label {
+		font-size: 1.2rem;
+		font-weight: 700;
+		margin-left: 2rem;
+		margin-top: 0.7rem;
+		display: block;
+		transition: all 0.3s;
+		-webkit-transition: all 0.3s;
+		-moz-transition: all 0.3s;
+		-ms-transition: all 0.3s;
+		-o-transition: all 0.3s;
+	}
+	//METTRE LE LABEL EN BAS DU INPUT SI ON TAPE SUR LE INPUT
+	&_input:placeholder-shown + &_label {
+		opacity: 0;
+		backface-visibility: hidden;
+		-webkit-backface-visibility: hidden;
+		transform: translateY(-4rem);
+		-webkit-transform: translateY(-4rem);
+		-moz-transform: translateY(-4rem);
+		-ms-transform: translateY(-4rem);
+		-o-transform: translateY(-4rem);
+	}
+
+	//FORM RADIO
+	&_radio {
+		width: 49%; // nours permet de les avoir sur la mm ligne
+		display: inline-block;
+
+		//MEDIA
+		@include respond(tabPort) {
+			width: 100%;
+			margin-bottom: 2rem;
+		}
+
+		&--label {
+			font-size: $default-font-size;
+			cursor: pointer;
+			position: relative;
+			padding-left: 5rem;
+		}
+
+		&--button {
+			display: inline-block;
+			height: 3rem;
+			width: 3rem;
+			border: 5px solid $color-primary;
+			position: absolute;
+			top: -0.4rem;
+			left: 0;
+
+			border-radius: 50%;
+			-webkit-border-radius: 50%;
+			-moz-border-radius: 50%;
+			-ms-border-radius: 50%;
+			-o-border-radius: 50%;
+
+			&::after {
+				content: "";
+				height: 1rem;
+				width: 1rem;
+				display: block;
+				background: $color-primary;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				-webkit-transform: translate(-50%, -50%);
+				-moz-transform: translate(-50%, -50%);
+				-ms-transform: translate(-50%, -50%);
+				-o-transform: translate(-50%, -50%);
+				border-radius: 50%;
+				-webkit-border-radius: 50%;
+				-moz-border-radius: 50%;
+				-ms-border-radius: 50%;
+				-o-border-radius: 50%;
+				opacity: 0;
+				transition: opacity 0.2s;
+				-webkit-transition: opacity 0.2s;
+				-moz-transition: opacity 0.2s;
+				-ms-transition: opacity 0.2s;
+				-o-transition: opacity 0.2s;
+			}
+		}
+
+		//FORM RADIO INPUT
+		&--input {
+			display: none;
+		}
+	}
+	//POUR FAIRE LE CHECKED SUR LE BOUTON VERT(sa transition est after)
+	&_radio--input:checked ~ &_radio--label &_radio--button::after {
+		opacity: 1;
+	}
+}

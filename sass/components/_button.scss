@@ -1,0 +1,124 @@
+// Trés important puisqu'ici on veut rajouter des élements pour button & non le aHref.. Donc il faut qu'on ajoute au .btn => l'element "&" { border: none}
+//On rajoutera aussi focus à &:active {outline:none}
+.btn {
+	&,
+	&:link,
+	&:visited {
+		text-transform: uppercase;
+		text-decoration: none;
+		padding: 1.5rem 4rem;
+		display: inline-block;
+		border-radius: 100px;
+		-webkit-border-radius: 10rem;
+		-moz-border-radius: 10rem;
+		-ms-border-radius: 10rem;
+		-o-border-radius: 10rem;
+		transition: all 0.2s;
+		-webkit-transition: all 0.2s;
+		-moz-transition: all 0.2s;
+		-ms-transition: all 0.2s;
+		-o-transition: all 0.2s;
+		position: relative;
+
+		//CHANGE FOR THE <BUTTON FORM >
+		border: none;
+		cursor: pointer;
+	}
+	&:hover {
+		transform: translateY(-3px);
+		-webkit-transform: translateY(-3px);
+		-moz-transform: translateY(-3px);
+		-ms-transform: translateY(-3px);
+		-o-transform: translateY(-3px);
+		box-shadow: 0 10px 20px rgba($color-black, 0.2);
+		&::after {
+			transform: scaleX(1.4) scaleY(1.6);
+			-webkit-transform: scaleX(1.4) scaleY(1.6);
+			-moz-transform: scaleX(1.4) scaleY(1.6);
+			-ms-transform: scaleX(1.4) scaleY(1.6);
+			-o-transform: scaleX(1.4) scaleY(1.6);
+			opacity: 0;
+		}
+	}
+	&:active,
+	&:focus {
+		outline: none;
+		transform: translateY(-1px);
+		-webkit-transform: translateY(-1px);
+		-moz-transform: translateY(-1px);
+		-ms-transform: translateY(-1px);
+		-o-transform: translateY(-1px);
+		box-shadow: 0 5px 10px rgba($color-black, 0.2);
+	}
+
+	&::after {
+		content: "";
+		display: inline-block;
+		height: 100%;
+		width: 100%;
+		border-radius: 10rem;
+		-webkit-border-radius: 10rem;
+		-moz-border-radius: 10rem;
+		-ms-border-radius: 10rem;
+		-o-border-radius: 10rem;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -1;
+		transition: all 0.4s;
+		-webkit-transition: all 0.4s;
+		-moz-transition: all 0.4s;
+		-ms-transition: all 0.4s;
+		-o-transition: all 0.4s;
+	}
+
+	&-white {
+		background-color: $color-white;
+		color: $color-gray;
+		&::after {
+			background-color: $color-white;
+		}
+	}
+	&-green {
+		background-color: $color-primary;
+		color: $color-gray-light2;
+		&::after {
+			background-color: $color-primary;
+		}
+	}
+
+	&-animated {
+		animation-name: moveInBottom;
+		animation-duration: 0.5s;
+		animation-timing-function: ease-out;
+		animation-delay: 0.75s;
+		animation-fill-mode: backwards;
+	}
+}
+.btn-text {
+	&:link,
+	:visited {
+		font-size: $default-font-size;
+		text-decoration: none;
+		color: $color-primary;
+		border-bottom: 1px solid $color-primary;
+		display: inline-block;
+		padding: 3px;
+		cursor: pointer;
+		transition: all 0.2s;
+	}
+	&:hover {
+		background-color: $color-primary;
+		color: $color-white;
+		box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+		transform: translateY(-2px);
+		-webkit-transform: translateY(-2px);
+		-moz-transform: translateY(-2px);
+		-ms-transform: translateY(-2px);
+		-o-transform: translateY(-2px);
+	}
+	&:active {
+		box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+		transform: translateY(0);
+	}
+}

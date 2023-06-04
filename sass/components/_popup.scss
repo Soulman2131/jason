@@ -1,0 +1,116 @@
+//A quel moment, le popup est target?
+// popup_target popup_content {opacity:1 transform}
+// On met dans _content opacity:0 & transform
+//Puisqu'on avait déjà une transform contenu dans AbsPosCenter, on lui rajoute le -50%
+
+.popup {
+	height: 100vh;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: rgba($color-black, 0.8);
+	z-index: 9999;
+
+	// display: none;
+	opacity: 0;
+	visibility: hidden;
+	transition: all 0.3s;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	-o-transition: all 0.3s;
+
+	&_content {
+		@include posAbsCenter;
+		width: 75%;
+		//height: 50rem;
+		background: $color-white;
+		box-shadow: 0 2rem 4rem rgba($color: $color-black, $alpha: 0.2);
+		border-radius: 3px;
+		-webkit-border-radius: 3px;
+		-moz-border-radius: 3px;
+		-ms-border-radius: 3px;
+		-o-border-radius: 3px;
+		display: table;
+		overflow: hidden; //permetdesortirleborrad//
+
+		opacity: 0;
+		transform: translate(-50%, -50%) scae(0);
+		-webkit-transform: translate(-50%, -50%) scae(0);
+		-moz-transform: translate(-50%, -50%) scae(0);
+		-ms-transform: translate(-50%, -50%) scae(0);
+		-o-transform: translate(-50%, -50%) scae(0);
+		transition: all 0.5s 0.25s;
+		-webkit-transition: all 0.5s 0.25s;
+		-moz-transition: all 0.5s 0.25s;
+		-ms-transition: all 0.5s 0.25s;
+		-o-transition: all 0.5s 0.25s;
+		&--left {
+			width: 33.33%;
+			display: table-cell;
+			&-img {
+				display: block;
+				width: 100%;
+			}
+		}
+
+		&--right {
+			width: 66.666%;
+			display: table-cell;
+			vertical-align: middle;
+			padding: 3rem 5rem;
+			&-text {
+				font-size: 1.4rem;
+				margin-bottom: 4rem;
+				column-count: 2;
+				column-gap: 4rem;
+				//1em=14px pcq fz=1.4rem
+				column-rule: 1px solid $color-gray-light2;
+				//Hyphens determine les tirets à la ligne dans le paraph
+				hyphens: auto;
+				-webkit-hyphens: auto;
+				-moz-hyphens: auto;
+				-ms-hyphens: auto;
+			}
+		}
+	}
+
+	//Le lien pour aller de Tours à Popup
+	&:target {
+		opacity: 1;
+		visibility: visible;
+	}
+
+	//Quand target le _content?
+	&:target &_content {
+		opacity: 1;
+		transform: translate(-50%, -50%) scale(1);
+		-webkit-transform: translate(-50%, -50%) scale(1);
+		-moz-transform: translate(-50%, -50%) scale(1);
+		-ms-transform: translate(-50%, -50%) scale(1);
+		-o-transform: translate(-50%, -50%) scale(1);
+	}
+	//La croix
+	&_button {
+		&:link,
+		:visited {
+			display: inline-block;
+			color: $color-tertiary-dark;
+			font-size: 3rem;
+			text-decoration: none;
+			position: absolute;
+			top: 2.5rem;
+			right: 2.5rem;
+			transition: all 0.3s;
+			-webkit-transition: all 0.3s;
+			-moz-transition: all 0.3s;
+			-ms-transition: all 0.3s;
+			-o-transition: all 0.3s;
+			line-height: 1;
+		}
+		&:hover {
+			color: $color-primary;
+		}
+	}
+}

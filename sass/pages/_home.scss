@@ -1,0 +1,118 @@
+// On commence par section-about puis les autres sections
+//Pour booking, on peut attendre au moment de faire _story
+//On enléve le h50rem du &_book. Une fois daite le booking, on va faire le _form/comp
+
+//ABOUT
+.section-about {
+	background-color: $color-gray-light;
+	padding: 25rem 0;
+	margin-top: -20vh;
+
+	@include respond(tabPort) {
+		padding: 22rem 0;
+	}
+}
+.u-center-text {
+	text-align: center;
+}
+
+//FEATURES
+.features {
+	padding: 20rem 0;
+	background: linear-gradient(
+			to right bottom,
+			rgba($color-primary-light, 0.8),
+			rgba($color-primary-dark, 0.8)
+		),
+		url(../img/nat-4.jpg) center/cover;
+	transform: skewY(-7deg);
+
+	& > * {
+		transform: skewY(7deg);
+	}
+	margin-top: -10rem;
+
+	//MEDIA
+	@include respond(tabPort) {
+		padding: 10rem 0;
+	}
+}
+
+//TOURS
+.tours {
+	background-color: $color-gray-light;
+	padding: 25rem 0 15rem;
+	margin-top: -12.5rem; //On se sert de l'inspection pour trouver la bonne taille du div tours
+
+	@include respond(tabPort) {
+		padding: 20rem 0 10rem;
+	}
+}
+
+//STORIES
+.stories {
+	padding: 15rem 0;
+	// background-color: $color-gray-light; avec la video, du coup on l'enléve
+	position: relative;
+
+	@include respond(tabPort) {
+		padding: 10rem 0;
+	}
+}
+
+//BOOKING
+.booking {
+	padding: 15rem 0;
+	background: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+
+	&_book {
+		// height: 50rem;
+		background: linear-gradient(
+				105deg,
+				rgba($color-white, 0.9) 0%,
+				rgba($color-white, 0.9) 50%,
+				transparent 50%
+			),
+			url(../img/nat-10.jpg) 100%;
+		box-shadow: 0 1.5rem 4rem rgba($color-black, 0.2);
+		border-radius: 3px;
+		-webkit-border-radius: 3px;
+		-moz-border-radius: 3px;
+		-ms-border-radius: 3px;
+		-o-border-radius: 3px;
+
+		//MEDIA
+		@include respond(tabLand) {
+			background: linear-gradient(
+					105deg,
+					rgba($color-white, 0.9) 0%,
+					rgba($color-white, 0.9) 65%,
+					transparent 65%
+				),
+				url(../img/nat-10.jpg) 100%;
+			background-size: cover;
+		}
+		@include respond(tabPort) {
+			background: linear-gradient(
+					to right,
+					rgba($color-white, 0.9) 0%,
+					rgba($color-white, 0.9) 100%
+				),
+				url(../img/nat-10.jpg);
+		}
+
+		&--form {
+			width: 50%;
+			padding: 6rem;
+
+			//MEDIA
+
+			@include respond(tabLand) {
+				width: 65%;
+			}
+			@include respond(tabPort) {
+				width: 100%;
+			}
+		}
+	}
+}

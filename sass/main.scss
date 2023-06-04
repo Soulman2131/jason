@@ -1,0 +1,25 @@
+//On commence toujours par Utils puis Base
+
+@import "./utils/variables";
+@import "./utils/mixins";
+@import "./utils/functions";
+
+@import "./base/animations";
+@import "./base/base";
+@import "./base/typography";
+
+@import "./layout/header";
+@import "./layout/footer";
+@import "./layout/grid";
+@import "./layout/navigation";
+
+@import "./components/button";
+@import "./components/card";
+@import "./components/composition";
+@import "./components/features-box";
+@import "./components/story";
+@import "./components/form";
+@import "./components/bg-video";
+@import "./components/popup";
+
+@import "./pages/home";

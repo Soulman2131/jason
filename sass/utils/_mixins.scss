@@ -1,0 +1,46 @@
+//Ensuite on convertit les px en em 1em=16px
+@mixin clearfix {
+	&::after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
+@mixin posAbsCenter {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+}
+
+// MEDIA QUERIES
+
+@mixin respond($breakpoint) {
+	@if $breakpoint == phone {
+		@media (max-width: 37.5em) {
+			@content;
+		}
+	}
+	@if $breakpoint == tabPort {
+		@media (max-width: 56.25em) {
+			@content;
+		}
+	}
+
+	@if $breakpoint == tabLand {
+		@media (max-width: 75em) {
+			@content;
+		}
+	}
+	//MIN-WIDTH
+	@if $breakpoint == bigDesk {
+		@media (min-width: 112.5em) {
+			@content;
+		}
+	}
+}
