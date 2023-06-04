@@ -1,0 +1,8 @@
+Dans cette section, on va corriger les derniers ajustements du projet
+
+###
+On va rajouter l'effet selection quand on selectionne un paragraphe & ce sera sur _base
+
+La deuxiéme chose concerne les médias queries dans _mixins & _header . On dit @media only screen and.
+
+La troisiéme est _card. Sur ecran phone, la faire pivotée est trés compliquée. Donc, on lui met un :hover: none && du coup il disparait

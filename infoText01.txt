@@ -1,0 +1,62 @@
+Cette partie préconise le RESPONSIVE
+N'oublions pas de NODE RUN SASS pour voir css/style.css ou dans Go-Watch-Sass pour main.css
+
+####
+Dans le R, il faut privilégier les em (1em=16px) pcq les rem ne marchent pas. On va voir comment utiliser les mixin && les @content et @if.
+
+##
+On va aller dans UTILS/MIXINS pour faire les mixins puis les transferer sur _base.scss. Ensuite on transforme les px en em 
+Dans le html, on a voulu que 1rem=10px d'où 62.5%. Pour les media, on veut que 1rem=8px, 9px ou 12px selon le respond. Donc on fera 8/16, 9/16, ou 12/16 sur _base
+
+##
+✌🌹L'ordre est de commencer par _base & _typo > layout > pages > compo
+
+Aprés avoir fait les fz, on s'attaque aux HEADING && on travaille avec CHROME. Dans CHROME, on clique sur le téléphone Responsive puis sur les pointillés pour sortir "Show media queries" qui va nous faciliter les width avec des couleurs. Aprés les heading, on travaille sur le _grid de layout
+Ensuite on fait le _header. On change le clip-path mais aussi le button MENU qui est à droite en haut && ça se trouve dans _navigation.scss
+Ensuite, on fait le _footer avec _navigation && logo_box
+
+##
+On s'attaque à Pages : _home PUIS a u-margin qui est dans _typo
+
+Ensuite aux 3 images collées (_composition) qui est dans comp puis _futures-box
+
+##
+
+
+
+
+##
+On va faire les cartes pivotantes && mettre le back sur le faciliter.
+On va sur _card et on fait les MEDIA
+Puis on va faire _story
+Ensuite _book/page && form/comp
+
+on a un site pour tester les R qui s'appelle:
+❤👌🤞🌹 sizzy.co
+
+
+###
+On va parler du R des images
+On a 👌🤞🌹 3 méthodes dans HTML & 1 dans CSS :
+
+#HTML
+- La premiere est relative aux images de l'HTML dans lesquelles on adapte les pixels en fonction de l'écran (1x, 2x, etc.). Faisons le sur le footer de index02.html
+
+- La deuxiéme (_footer)cest comme la 1ére sauf qu'on l'englobe dans un <picture> et 
+- la troisiéme (_composition) sera sur index03.html
+
+Dans la 3eme, 300w ie 300pixels & on met img:srcset && on lui rajoute "sizes. Pour lui trouver son vw, on inspecte l'image à 900px ie 56.25em puis on prend le 147.19 du 147.19*98.16
+=> 147*900 => 16.33 = 17vw 
+&& on fait pareil pour 600px ie 37.5em et ça donne147/600 = 25vw
+&& le 300px ce sera le default au cas où l'on n'aura pas les 2 précedentes.
+
+jASON 👌🤞🌹 nous a fait un challenge de faire les images de _popup &&  _story
+
+- Dans CSS: on va travailler sur les images de CSS comme celui du HEADER => _headers
+
+
+####
+Dans cette section, on parle de CANIUSE pour voir quelles propriétés est adaptées à quel site. On vérfie que les propriétes marchent sur CHROME, MOZ, etc.
+Exemple de Backdrop-filter où l'on souhaiteraut rajoute à _popup une couleur de fond claire & non noire pcq Backdrop-filter ne marche pas pour l'instant sur CHROME mais seulement sur MOZILLA
+
+& c'est la même chose pour BACKface-visible. Sur Caniuse, ça ne fonctionne pas sur MOZILLA . Donc allons à _card. mais également corrigé la résolution d'image && (clip-path sur _header05 ou _story02)

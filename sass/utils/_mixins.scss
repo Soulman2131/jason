@@ -1,4 +1,5 @@
 //Ensuite on convertit les px en em 1em=16px
+//On rajoute la bonne pratique @media only screen and
 @mixin clearfix {
 	&::after {
 		content: "";
@@ -22,24 +23,24 @@
 
 @mixin respond($breakpoint) {
 	@if $breakpoint == phone {
-		@media (max-width: 37.5em) {
+		@media only screen and (max-width: 37.5em) {
 			@content;
 		}
 	}
 	@if $breakpoint == tabPort {
-		@media (max-width: 56.25em) {
+		@media only screen and (max-width: 56.25em) {
 			@content;
 		}
 	}
 
 	@if $breakpoint == tabLand {
-		@media (max-width: 75em) {
+		@media only screen and (max-width: 75em) {
 			@content;
 		}
 	}
 	//MIN-WIDTH
 	@if $breakpoint == bigDesk {
-		@media (min-width: 112.5em) {
+		@media only screen and (min-width: 112.5em) {
 			@content;
 		}
 	}

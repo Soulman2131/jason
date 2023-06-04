@@ -1,5 +1,6 @@
 //  On enleve le phone et le tab
 //Le meilleur chemin est de commencer par le haut & de descendre tab-Land(w<1200) puis tab-port(w<900)
+//On rajoute ::selection
 *,
 *::before,
 *::after {
@@ -26,4 +27,8 @@ html {
 
 body {
 	box-sizing: border-box;
+}
+::selection {
+	background: $color-primary;
+	color: $color-white;
 }
